@@ -32,8 +32,12 @@ namespace Catalog.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            // var serviceProvider = services.BuildServiceProvider();
+            // var logger = serviceProvider.GetService<ILogger>();
+            // services.AddSingleton(typeof(ILogger), logger);
             services.Configure<DatabaseSetting>(Configuration.GetSection(nameof(DatabaseSetting)));
             services.AddSingleton<IDatabaseSetting>(sp => sp.GetRequiredService<IOptions<DatabaseSetting>>().Value);
+            
             services.AddTransient<ICatalogDbContext, CatalogDbContext>();
             services.AddTransient<IProductRepository, ProductRepository>();
         }

@@ -1,9 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Catalog.API.Data.Interfaces;
 using Catalog.API.Entities;
 using Catalog.API.Repositories.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
+using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace Catalog.API.Repositories
@@ -24,7 +27,9 @@ namespace Catalog.API.Repositories
 
         public async Task<IEnumerable<Product>> GetProductsByName(string name)
         {
-            FilterDefinition<Product> filterDefinition = Builders<Product>.Filter.ElemMatch(p => p.Name,name);
+            FilterDefinition<Product> filterDefinition =
+                Builders<Product>.Filter.Where(p => p.Name.ToLower().Contains(name.ToLower()));
+            
             return await _context.Products.Find(filterDefinition).ToListAsync();
         }
 

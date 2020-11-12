@@ -18,9 +18,9 @@ namespace Catalog.API.Controllers
     public class CatalogController : ControllerBase
     {
         private readonly IProductRepository _productRepository;
-        private readonly Logger<CatalogController> _logger;
+        private readonly ILogger _logger;
 
-        public CatalogController(IProductRepository productRepository, Logger<CatalogController> logger)
+        public CatalogController(IProductRepository productRepository, ILogger<CatalogController> logger)
         {
             _productRepository = productRepository;
             _logger = logger;
@@ -34,7 +34,7 @@ namespace Catalog.API.Controllers
             return Ok(products);
         }
         
-        [HttpGet]
+        [HttpGet("{id:length(24)}",Name = "GetProduct")]
         [ProducesResponseType(typeof(Product),(int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
         public async Task<ActionResult<Product>> GetProduct(string id)
@@ -45,7 +45,8 @@ namespace Catalog.API.Controllers
             return Ok(product);
         }
         
-        [HttpGet]
+        [HttpGet()]
+        [Route("[action]/{category}")]
         [ProducesResponseType(typeof(IEnumerable<Product>),(int)HttpStatusCode.OK)]
         public async Task<ActionResult<IEnumerable<Product>>>  GetProductByCategoryName(string categoryName)
         {
@@ -53,7 +54,8 @@ namespace Catalog.API.Controllers
             return Ok(products);
         }
         
-        [HttpGet]
+        [HttpGet()]
+        [Route("[action]/{name}")]
         [ProducesResponseType(typeof(IEnumerable<Product>),(int)HttpStatusCode.OK)]
         public async Task<ActionResult<IEnumerable<Product>>>  GetProductByName(string name)
         {
