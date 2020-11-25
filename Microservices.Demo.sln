@@ -1,13 +1,16 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservices.Demo.Web", "Microservices.Demo.Web\Microservices.Demo.Web.csproj", "{92A77CDA-518C-497B-BCA9-8ACD7B16E7A0}"
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30621.155
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservices.Demo.Web", "Microservices.Demo.Web\Microservices.Demo.Web.csproj", "{92A77CDA-518C-497B-BCA9-8ACD7B16E7A0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5A071B92-4CFD-44A7-BB73-6A7C89055ED4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{4BF0FC52-0CF5-41AC-B0D9-ED5BA11EBC38}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.API", "src\Catalog\Catalog.API\Catalog.API.csproj", "{D42AAABD-B77B-467E-943B-175E70D33B78}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.API", "src\Catalog\Catalog.API\Catalog.API.csproj", "{D42AAABD-B77B-467E-943B-175E70D33B78}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{D32AA331-3A6E-4E07-A702-64C2F5776D20}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +26,20 @@ Global
 		{D42AAABD-B77B-467E-943B-175E70D33B78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D42AAABD-B77B-467E-943B-175E70D33B78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D42AAABD-B77B-467E-943B-175E70D33B78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D32AA331-3A6E-4E07-A702-64C2F5776D20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D32AA331-3A6E-4E07-A702-64C2F5776D20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D32AA331-3A6E-4E07-A702-64C2F5776D20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D32AA331-3A6E-4E07-A702-64C2F5776D20}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{92A77CDA-518C-497B-BCA9-8ACD7B16E7A0} = {5A071B92-4CFD-44A7-BB73-6A7C89055ED4}
 		{4BF0FC52-0CF5-41AC-B0D9-ED5BA11EBC38} = {5A071B92-4CFD-44A7-BB73-6A7C89055ED4}
 		{D42AAABD-B77B-467E-943B-175E70D33B78} = {4BF0FC52-0CF5-41AC-B0D9-ED5BA11EBC38}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CED7C1A3-BB35-4E07-BB18-4606CDF3D551}
 	EndGlobalSection
 EndGlobal
