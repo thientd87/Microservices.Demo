@@ -9,9 +9,13 @@ services:
         ports:
             - "27018:27018"
     catalog.api:
+        container_name: catalogapi
         environment:
             - ASPNETCORE_ENVIRONMENT=Development
+            - "CatalogDatabaseSettings:ConnectionString=mongodb://catalogdb_demo:27018"
             - ASPNETCORE_URLS=https://+:443;http://+:80
+            - ASPNETCORE_Kestrel__Certificates__Default__Password=Thien@2020
+            - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
         depends_on:
             - catalogdb
         ports:
