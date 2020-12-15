@@ -14,14 +14,16 @@ services:
             - ASPNETCORE_ENVIRONMENT=Development
             - "CatalogDatabaseSettings:ConnectionString=mongodb://catalogdb_demo:27018"
             - ASPNETCORE_URLS=https://+:443;http://+:8000
+            - ASPNETCORE_HTTPS_PORT=443
             - ASPNETCORE_Kestrel__Certificates__Default__Password=Thien@2020
             - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/catalogapi.pfx
         depends_on:
             - catalogdb
         ports:
-            - "8000:80"
-            - "8001:443"   
+            - "8888:80"
+            - "8889:443"   
         volumes:
             - ~/.aspnet/https:/root/.aspnet/https:ro
             - ~/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro
-            - ${HOME}/.aspnet/https:/https/
+            #- ${HOME}/.aspnet/https:/https/ #MacOS
+            - ${USERPROFILE}\.aspnet\https:/https/ #Window
